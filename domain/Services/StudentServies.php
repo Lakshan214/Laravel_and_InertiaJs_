@@ -7,27 +7,27 @@ use App\Models\Student;
 class StudentServies{
 
 
-    protected $task;
+    protected $student;
       
     
     
     public function __construct()
     {
-        $this-> task =new Student();
+        $this-> student =new Student();
        
     }
 public function all(){
-    return  $this->task->all();
+    return  $this->student->all();
 
 }
 
 public function get($id){
-    return  $this->task->find($id);
+    return  $this->student->find($id);
 
 }
 public function save( $data){
  
-$this->task-> create($data);
+$this->student-> create($data);
 
 
 
@@ -35,20 +35,20 @@ $this->task-> create($data);
 
 public function delete($id){
 
-$task=$this->task->find($id);
-$task->delete();
+$student=$this->student->find($id);
+$student->delete();
 
 
 }
 public function done($id){
 
-    $task = $this->task->find($id);
-    if ($task->status == 0) {
-        $task->status = 1;
+    $student= $this->student->find($id);
+    if ($student->status == 0) {
+        $student->status = 1;
     } else {
-        $task->status = 0;
+        $student->status = 0;
     }
-    $task->save();
+    $student->save();
     }
   
 public function update($task_id){
